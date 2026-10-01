@@ -1,4 +1,4 @@
-# anki-orm
+# anki-japanesekic-frequency
 
 Scripts to enrich the **"Kanji in Context: Revised Edition"** Anki deck using the
 official Anki Python API ([`anki`](https://pypi.org/project/anki/) package),
