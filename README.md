@@ -9,7 +9,7 @@ working directly against the local Anki collection:
 ```
 
 The note type ("Japanese KIC") has these fields: `Expression`, `Reading`,
-`Meaning`, `Notes`, `Frequency`, `Example_Japanese_01..03`,
+`Meaning`, `Notes`, `Frequency`, `Frequency_ID`, `Example_Japanese_01..03`,
 `Example_Japanese_01..03_Furigana`, `Example_English_01..03`.
 
 ## ⚠️ Before running anything
@@ -118,6 +118,20 @@ okurigana so only the kanji portion of each token is bracketed.
 ```sh
 python3 add_furigana.py            # dry run
 python3 add_furigana.py --apply    # write changes
+```
+
+## `populate_frequency_id.py`
+
+Adds a `Frequency_ID` field (if not already present, positioned right after
+`Frequency`) and fills it with a plain sequential rank - `1` for the note
+with the lowest `Frequency` value, `2` for the next, and so on.
+Unlike `Frequency` (which encodes the source corpus and isn't comparable
+across sources), `Frequency_ID` is just each note's position in the overall
+frequency ordering.
+
+```sh
+python3 populate_frequency_id.py            # dry run
+python3 populate_frequency_id.py --apply    # write changes
 ```
 
 ## Data caching
